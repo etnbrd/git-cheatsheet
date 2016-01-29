@@ -77,47 +77,39 @@ body {
   background: fade(black, 80%);
 }
 
-.from-first.to-left,
-.first  {
-  @color: fade(darken(@first-color, 20%), 80%);
+.arrow-color(@color) {
   background: @color;
   &.to-left:after {border-right-color: @color}
   &.to-right:after {border-left-color: @color}
 }
+
+.from-first.to-left,
+.first  {
+  .arrow-color(fade(darken(@first-color, 20%), 80%));
+}
 .from-second.to-left,
 .from-first.to-right.one,
 .second {
-  @color: fade(darken(@second-color, 20%), 80%);
-  background: @color;
-  &.to-left:after {border-right-color: @color}
-  &.to-right:after {border-left-color: @color}}
+  .arrow-color(fade(darken(@second-color, 20%), 80%));
+}
 .from-third.to-left,
 .from-first.to-right.two,
 .from-second.to-right.one,
 .third  {
-  @color: fade(darken(@second-color, 20%), 80%);
-  background: @color;
-  &.to-left:after {border-right-color: @color}
-  &.to-right:after {border-left-color: @color}
+  .arrow-color(fade(darken(@second-color, 20%), 80%));
 }
 .from-fourth.to-left,
 .from-third.to-right.one,
 .from-second.to-right.two,
 .from-first.to-right.three,
 .fourth {
-  @color: fade(darken(@fourth-color, 20%), 80%);
-  background: @color;
-  &.to-left:after {border-right-color: @color}
-  &.to-right:after {border-left-color: @color}
+  .arrow-color(fade(darken(@fourth-color, 20%), 80%));
 }
 .from-fourth.to-right.one,
 .from-third.to-right.two,
 .from-second.to-right.three,
 .fifth  {
-  @color: fade(darken(@fifth-color, 20%), 80%);
-  background: @color;
-  &.to-left:after {border-right-color: @color}
-  &.to-right:after {border-left-color: @color}
+  .arrow-color(fade(darken(@fifth-color, 20%), 80%));
 }
 
 .container:after,
