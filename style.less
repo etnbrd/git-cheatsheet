@@ -125,32 +125,35 @@ body {
   margin-left: 0;
 }
 
+@columns: 10;
+@margin: 2%;
+@width: (100% - @margin * (@columns - 1)) / @columns;
+
 .container {
   background: linear-gradient(to right,
-    @first-color 0%, @first-color 18.4%,
-    transparent 18.4%, transparent 20.4%,
-    @second-color 20.4%, @second-color 38.8%,
-    transparent 38.8%, transparent 40.8%,
-    @third-color 40.8%, @third-color 59.2%,
-    transparent 59.2%, transparent 61.2%,
-    @fourth-color 61.2%, @fourth-color 79.6%,
-    transparent 79.6%, transparent 81.6%,
-    @fifth-color 81.6%, @fifth-color 100%
+    @first-color 0%, @first-color @width*2 + @margin,
+    transparent @width*2 + @margin, transparent @width*2 + @margin*2,
+    @second-color @width*2 + @margin*2, @second-color @width*4 + @margin*3,
+    transparent @width*4 + @margin*3, transparent @width*4+@margin*4,
+    @third-color @width*4+@margin*4, @third-color @width*6 + @margin*5,
+    transparent @width*6 + @margin*5, transparent @width*6 + @margin*6,
+    @fourth-color @width*6 + @margin*6, @fourth-color @width*8 + @margin*7,
+    transparent @width*8 + @margin*7, transparent @width*8 + @margin*8,
+    @fifth-color @width*8 + @margin*8, @fifth-color 100%
   );
 }
 
-.one.columns           { width: 18.4%; }
-.two.columns           { width: 38.8%; }
-.three.columns         { width: 59.2%; }
-.four.columns          { width: 79.6%; }
+.one.columns           { width: @width*2 + @margin; }
+.two.columns           { width: @width*4 + @margin*3; }
+.three.columns         { width: @width*6 + @margin*5; }
+.four.columns          { width: @width*8 + @margin*7; }
 
-/* Offsets */
-.from-first.columns    { margin-left: 10.2%; }
-.from-second.columns   { margin-left: 30.6%; }
-.from-third.columns    { margin-left: 51%; }
-.from-fourth.columns   { margin-left: 71.4%; }
+.from-first.columns    { margin-left: @width + @margin; }
+.from-second.columns   { margin-left: @width*2 + @margin*2; }
+.from-third.columns    { margin-left: @width*4 + @margin*4; }
+.from-fourth.columns   { margin-left: @width*6 + @margin*6; }
 
-.second.columns        { margin-left: 20.4%; }
-.third.columns         { margin-left: 40.8%; }
-.fourth.columns        { margin-left: 61.2%; }
-.fifth.columns         { margin-left: 81.6%; }
+.second.columns        { margin-left: @width*2 + @margin*2; }
+.third.columns         { margin-left: @width*4 + @margin*4; }
+.fourth.columns        { margin-left: @width*6 + @margin*6; }
+.fifth.columns         { margin-left: @width*8 + @margin*8; }
