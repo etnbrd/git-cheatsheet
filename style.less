@@ -8,6 +8,8 @@
 @color-4: #3CADD7;
 @color-5: #266B85;
 
+@interline: 3px;
+
 * {
   margin: 0;
   padding: 0;
@@ -42,10 +44,26 @@ body {
   font-family: 'Inconsolata';
   background: black;
   color: white;
+  position: relative;
 
   dd {
     height: 0;
     overflow: hidden;
+    z-index: 1;
+  }
+
+  &:hover dd {
+    height: auto;
+    transition: 1;
+    position: absolute;
+    width: 300px;
+    padding: 10px;
+    border-radius: 2pt;
+    margin-top: @interline*1.5;
+  }
+
+  &.fifth:hover dd {
+    right: 2%;
   }
 }
 
@@ -64,7 +82,7 @@ body {
   float: left;
   box-sizing: border-box;
   padding: @pad-v @pad-h;
-  margin-bottom: 3px;
+  margin-bottom: @interline;
 }
 
 .to-left:after,
@@ -102,35 +120,38 @@ body {
   background: @color;
   &.to-left:after {border-right-color: @color}
   &.to-right:after {border-left-color: @color}
+  &:hover dd {
+    background: darken(fadein(@color, 70%), 2%);
+  }
 }
 
 .from-first.to-left,
 .first  {
-  .arrow-color(fade(darken(@color-1, 20%), 80%));
+  .arrow-color(fade(darken(@color-1, 10%), 95%));
 }
 .from-second.to-left,
 .from-first.to-right.one,
 .second {
-  .arrow-color(fade(darken(@color-2, 20%), 80%));
+  .arrow-color(fade(darken(@color-2, 10%), 95%));
 }
 .from-third.to-left,
 .from-first.to-right.two,
 .from-second.to-right.one,
 .third  {
-  .arrow-color(fade(darken(@color-3, 20%), 80%));
+  .arrow-color(fade(darken(@color-3, 10%), 95%));
 }
 .from-fourth.to-left,
 .from-third.to-right.one,
 .from-second.to-right.two,
 .from-first.to-right.three,
 .fourth {
-  .arrow-color(fade(darken(@color-4, 20%), 80%));
+  .arrow-color(fade(darken(@color-4, 10%), 95%));
 }
 .from-fourth.to-right.one,
 .from-third.to-right.two,
 .from-second.to-right.three,
 .fifth  {
-  .arrow-color(fade(darken(@color-5, 20%), 80%));
+  .arrow-color(fade(darken(@color-5, 10%), 95%));
 }
 
 .container:after,
