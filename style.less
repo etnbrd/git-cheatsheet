@@ -67,11 +67,11 @@ body {
 
 
 
-@first-color: #D7503C;
-@second-color: #FFB454;
-@third-color: #43AE88;
-@fourth-color: #3CADD7;
-@fifth-color: #266B85;
+@color-1: #D7503C;
+@color-2: #FFB454;
+@color-3: #43AE88;
+@color-4: #3CADD7;
+@color-5: #266B85;
 
 .local {
   background: fade(black, 80%);
@@ -85,31 +85,31 @@ body {
 
 .from-first.to-left,
 .first  {
-  .arrow-color(fade(darken(@first-color, 20%), 80%));
+  .arrow-color(fade(darken(@color-1, 20%), 80%));
 }
 .from-second.to-left,
 .from-first.to-right.one,
 .second {
-  .arrow-color(fade(darken(@second-color, 20%), 80%));
+  .arrow-color(fade(darken(@color-2, 20%), 80%));
 }
 .from-third.to-left,
 .from-first.to-right.two,
 .from-second.to-right.one,
 .third  {
-  .arrow-color(fade(darken(@second-color, 20%), 80%));
+  .arrow-color(fade(darken(@color-3, 20%), 80%));
 }
 .from-fourth.to-left,
 .from-third.to-right.one,
 .from-second.to-right.two,
 .from-first.to-right.three,
 .fourth {
-  .arrow-color(fade(darken(@fourth-color, 20%), 80%));
+  .arrow-color(fade(darken(@color-4, 20%), 80%));
 }
 .from-fourth.to-right.one,
 .from-third.to-right.two,
 .from-second.to-right.three,
 .fifth  {
-  .arrow-color(fade(darken(@fifth-color, 20%), 80%));
+  .arrow-color(fade(darken(@color-5, 20%), 80%));
 }
 
 .container:after,
@@ -131,15 +131,15 @@ body {
 
 .container {
   background: linear-gradient(to right,
-    @first-color 0%, @first-color @width*2 + @margin,
+    @color-1 0%, @color-1 @width*2 + @margin,
     transparent @width*2 + @margin, transparent @width*2 + @margin*2,
-    @second-color @width*2 + @margin*2, @second-color @width*4 + @margin*3,
+    @color-2 @width*2 + @margin*2, @color-2 @width*4 + @margin*3,
     transparent @width*4 + @margin*3, transparent @width*4+@margin*4,
-    @third-color @width*4+@margin*4, @third-color @width*6 + @margin*5,
+    @color-3 @width*4+@margin*4, @color-3 @width*6 + @margin*5,
     transparent @width*6 + @margin*5, transparent @width*6 + @margin*6,
-    @fourth-color @width*6 + @margin*6, @fourth-color @width*8 + @margin*7,
+    @color-4 @width*6 + @margin*6, @color-4 @width*8 + @margin*7,
     transparent @width*8 + @margin*7, transparent @width*8 + @margin*8,
-    @fifth-color @width*8 + @margin*8, @fifth-color 100%
+    @color-5 @width*8 + @margin*8, @color-5 100%
   );
 }
 
