@@ -1,3 +1,13 @@
+@columns: 10;
+@margin: 2%;
+@width: (100% - @margin * (@columns - 1)) / @columns;
+
+@color-1: #D7503C;
+@color-2: #FFB454;
+@color-3: #43AE88;
+@color-4: #3CADD7;
+@color-5: #266B85;
+
 @font-face {
   font-family: "Terminus";
   src: url("TerminusTTF-4.39.ttf");
@@ -65,14 +75,6 @@ body {
   right: -43px;
 }
 
-
-
-@color-1: #D7503C;
-@color-2: #FFB454;
-@color-3: #43AE88;
-@color-4: #3CADD7;
-@color-5: #266B85;
-
 .local {
   background: fade(black, 80%);
 }
@@ -124,10 +126,6 @@ body {
 .columns:first-child {
   margin-left: 0;
 }
-
-@columns: 10;
-@margin: 2%;
-@width: (100% - @margin * (@columns - 1)) / @columns;
 
 .container {
   background: linear-gradient(to right,
