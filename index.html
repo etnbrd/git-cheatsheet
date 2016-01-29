@@ -28,51 +28,53 @@
           <h1>upstream repository</h1>
         </div>
       </div>
-      <div class='row'><div class='from-second local    one columns command'> status </div></div>
-      <div class='row'><div class='from-second local    one columns command'> diff </div></div>
-      <div class='row'><div class='from-second local    two columns command'> diff &lt;commit or branch&gt; </div></div>
-      <div class='row'><div class='from-second to-right one columns command'> add &lt;file... or dir...&gt; </div></div>
-      <div class='row'><div class='from-second to-right one columns command'> add -u </div></div>
-      <div class='row'><div class='from-second to-right one columns command'> rm &lt;file(s)...&gt; </div></div>
-      <div class='row'><div class='from-second to-right one columns command'> mv &lt;file(s)...&gt; </div></div>
-      <div class='row'><div class='from-second to-right two columns command'> commit -a [-m 'msg'] </div></div>
-      <div class='row'><div class='from-second to-left  one columns command'> checkout &lt;files(s)... or dir&gt; </div></div>
-      <div class='row'><div class='from-third  local    one columns command'> reset HEAD file(s)... </div></div>
-      <div class='row'><div class='from-third  to-left  one columns command'> reset --soft HEAD^ </div></div>
-      <div class='row'><div class='from-second to-left  two columns command'> reset --hard </div></div>
-      <div class='row'><div class='from-second to-left  two columns command'> checkout &lt;branch&gt; </div></div>
-      <div class='row'><div class='from-second to-left  two columns command'> checkout -b &lt;name of new branch&gt; </div></div>
-      <div class='row'><div class='from-second to-left  two columns command'> merge &lt;commit or branch&gt; </div></div>
-      <div class='row'><div class='from-second to-left  two columns command'> rebase &lt;upstream&gt; </div></div>
-      <div class='row'><div class='from-second to-left  two columns command'> cherry-pick &lt;commit&gt; </div></div>
-      <div class='row'><div class='from-second to-left  two columns command'> revert &lt;commit&gt; </div></div>
-      <div class='row'><div class='from-third  local    one columns command'> diff --cached commit </div></div>
-      <div class='row'><div class='from-third  to-right one columns command'> commit [-m 'msg'] </div></div>
-      <div class='row'><div class='from-third  to-right one columns command'> commit --amend </div></div>
-      <div class='row'><div class='fourth      local    one columns command'> log </div></div>
-      <div class='row'><div class='fourth      local    one columns command'> diff &lt;commit&gt; &lt;commit&gt; </div></div>
-      <div class='row'><div class='fourth      local    one columns command'> branch </div></div>
-      <div class='row'><div class='fourth      local    one columns command'> branch -d &lt;branch&gt; </div></div>
-      <div class='row'><div class='from-fourth to-right one columns command'> branch --track new &lt;remote&gt;/&lt;branch&gt; </div></div>
-      <div class='row'><div class='from-second to-left  three columns command'> clone &lt;repo&gt; </div></div>
-      <div class='row'><div class='from-second to-left  three columns command'> pull &lt;remote&gt; &lt;refspec&gt; </div></div>
-      <div class='row'><div class='from-second to-left  three columns command'> reset --hard &lt;remote&gt;/&lt;branch&gt; </div></div>
-      <div class='row'><div class='from-fourth to-left  one columns command'> fetch remote &lt;refspec&gt; </div></div>
-      <div class='row'><div class='from-fourth to-right one columns command'> push </div></div>
-      <div class='row'><div class='from-fourth to-right one columns command'> push remote &lt;branch&gt; </div></div>
-      <div class='row'><div class='from-fourth to-right one columns command'> push remote &lt;branch&gt;:&lt;branch&gt; </div></div>
-      <div class='row'><div class='fifth       local    one columns command'> branch -r </div></div>
-      <div class='row'><div class='fifth       local    one columns command'> push &lt;remote&gt; :&lt;branch&gt; </div></div>
-      <div class='row'><div class='second      to-left  one columns command'> clean </div></div>
-      <div class='row'><div class='from-first  to-left  one columns command'> stash save [&lt;msg&gt;] </div></div>
-      <div class='row'><div class='from-first  to-right one columns command'> stash apply [&lt;stash&gt;] </div></div>
-      <div class='row'><div class='from-first  to-right one columns command'> stash pop </div></div>
-      <div class='row'><div class='first       local    one columns command'> stash list </div></div>
-      <div class='row'><div class='first       local    one columns command'> stash show [&lt;stash&gt;] </div></div>
-      <div class='row'><div class='first       local    one columns command'> stash drop [&lt;stash&gt;] </div></div>
-      <div class='row'><div class='first       local    one columns command'> stash clear </div></div>
-      <div class='row'><div class='from-first  to-right three columns command'> stash branch &lt;branchname&gt; [&lt;stash&gt;] </div></div>
+      <dl>
+        <div class='row'><div class='from-second local    one columns command'> <dt>status</dt><dd>Displays paths that have differences between the index file and the current HEAD commit, paths that have differences between the workspace and the index file, and paths in the workspace that are not tracked by git.</dd></div></div>
+        <div class='row'><div class='from-second local    one columns command'> <dt>diff</dt><dd>Displays the differences not added to the index.</dd></div></div>
+        <div class='row'><div class='from-second local    two columns command'> <dt>diff <em>commit or branch</em></dt><dd>View the changes you have in your workspace relative to the named &lt;em&gt;commit&lt;/em&gt;. You can use HEAD to compare it with the latest commit, or a branch name to compare with the tip of a different branch.</dd></div></div>
+        <div class='row'><div class='from-second to-right one columns command'> <dt>add <em>file... or dir...</em></dt><dd>Adds the current content of new or modified files to the index, thus staging that content for inclusion in the next commit. Use &lt;code&gt;add --interactive&lt;/code&gt; to add the modified contents in the workspace interactively to the index.</dd></div></div>
+        <div class='row'><div class='from-second to-right one columns command'> <dt>add -u</dt><dd>Adds the current content of modified (NOT NEW) files to the index. This is similar to what 'git commit -a' does in preparation for making a commit.</dd></div></div>
+        <div class='row'><div class='from-second to-right one columns command'> <dt>add -p</dt><dd>Interactively add the current content of modified files to the index. This interactive mode allows to review hunks individually.</dd></div></div>
+        <div class='row'><div class='from-second to-right one columns command'> <dt>rm <em>file(s)...</em></dt><dd>Remove a file from the workspace and the index.</dd></div></div>
+        <div class='row'><div class='from-second to-right one columns command'> <dt>mv <em>file(s)...</em></dt><dd>Move file in the workspace and the index.</dd></div></div>
+        <div class='row'><div class='from-second to-right two columns command'> <dt>commit -a <span class="optional">-m 'msg'</span></dt><dd>Commit all files changed since your last commit, except untracked files (ie. all files that are already listed in the index). Remove files in the index that have been removed from the workspace.</dd></div></div>
+        <div class='row'><div class='from-second to-left  one columns command'> <dt>checkout <em>files(s)... or dir</em></dt><dd>Updates the file or directory in the workspace. Does NOT switch branches.</dd></div></div>
+        <div class='row'><div class='from-third  local    one columns command'> <dt>reset HEAD <em>file(s)...</em></dt><dd>Remove the specified files from the next commit. Resets the index but not the working tree (i.e., the changed files are preserved but not marked for commit) and reports what has not been updated.</dd></div></div>
+        <div class='row'><div class='from-third  to-left  one columns command'> <dt>reset --soft HEAD^</dt><dd>Undo the last commit, leaving changes in the index.</dd></div></div>
+        <div class='row'><div class='from-second to-left  two columns command'> <dt>reset --hard</dt><dd>Matches the workspace and index to the local tree. WARNING: Any changes to tracked files in the working tree since commit are lost. Use this if merging has resulted in conflicts and you'd like to start over. Pass ORIG_HEAD to undo the most recent successful merge and any changes after.</dd></div></div>
+        <div class='row'><div class='from-second to-left  two columns command'> <dt>checkout <em>branch</em></dt><dd>Switches branches by updating the index and workspace to reflect the specified branch, &lt;em&gt;branch&lt;/em&gt;, and updating HEAD to be &lt;em&gt;branch&lt;/em&gt;.</dd></div></div>
+        <div class='row'><div class='from-second to-left  two columns command'> <dt>checkout -b <em>name of new branch</em></dt><dd>Create a branch and switch to it</dd></div></div>
+        <div class='row'><div class='from-second to-left  two columns command'> <dt>merge <em>commit or branch</em></dt><dd>Merge changes from &lt;em&gt;branch name&lt;/em&gt; into current branch.&lt;br&gt;Use &lt;code&gt;&amp;#8209;&amp;#8209;no-commit&lt;/code&gt; to leave changes uncommitted.</dd></div></div>
+        <div class='row'><div class='from-second to-left  two columns command'> <dt>rebase <em>upstream</em></dt><dd>Reverts all commits since the current branch diverged from &lt;em&gt;upstream&lt;/em&gt;, and then re-applies them one-by-one on top of changes from the HEAD of &lt;em&gt;upstream&lt;/em&gt;.</dd></div></div>
+        <div class='row'><div class='from-second to-left  two columns command'> <dt>cherry-pick <em>commit</em></dt><dd>Integrate changes in the given commit into the current branch.</dd></div></div>
+        <div class='row'><div class='from-second to-left  two columns command'> <dt>revert <em>commit</em></dt><dd>Reverse commit specified by &lt;em&gt;commit&lt;/em&gt; and commit the result. This requires your working tree to be clean (no modifications from the HEAD commit).</dd></div></div>
+        <div class='row'><div class='from-third  local    one columns command'> <dt>diff --cached <span class="optional"><em>commit</em></span></dt><dd>View the changes you staged vs the latest commit. Can pass a &lt;em&gt;commit&lt;/em&gt; to see changes relative to it.</dd></div></div>
+        <div class='row'><div class='from-third  to-right one columns command'> <dt>commit <span class="optional">-m 'msg'</span></dt><dd>Stores the current contents of the index in a new commit along with a log message from the user describing the changes.</dd></div></div>
+        <div class='row'><div class='from-third  to-right one columns command'> <dt>commit --amend</dt><dd>Modify the last commit with the current index changes.</dd></div></div>
+        <div class='row'><div class='fourth      local    one columns command'> <dt>log</dt><dd>Show recent commits, most recent on top. Options:&lt;br&gt;&lt;code&gt;&amp;#8209;&amp;#8209;decorate&lt;/code&gt; with branch and tag names on appropriate commits&lt;br&gt;&lt;code&gt;&amp;#8209;&amp;#8209;stat&lt;/code&gt; with stats (files changed, insertions, and deletions) &lt;br&gt;&lt;code&gt;&amp;#8209;&amp;#8209;author=&lt;em&gt;author&lt;/em&gt;&lt;/code&gt; only by a certain author&lt;br&gt;&lt;code&gt;&amp;#8209;&amp;#8209;after="MMM DD YYYY"&lt;/code&gt; ex. ("Jun 20 2008") only commits after a certain date&lt;br&gt;&lt;code&gt;&amp;#8209;&amp;#8209;before="MMM DD YYYY"&lt;/code&gt; only commits that occur before a certain date &lt;br&gt;&lt;code&gt;&amp;#8209;&amp;#8209;merge&lt;/code&gt; only the commits involved in the current merge conflicts</dd></div></div>
+        <div class='row'><div class='fourth      local    one columns command'> <dt>diff <em>commit</em> <em>commit</em></dt><dd>View the changes between two arbitrary commits</dd></div></div>
+        <div class='row'><div class='fourth      local    one columns command'> <dt>branch</dt><dd>List all existing branches. Option -r causes the remote-tracking branches to be listed, and option -a shows both.</dd></div></div>
+        <div class='row'><div class='fourth      local    one columns command'> <dt>branch -d <em>branch</em></dt><dd>Delete an specified branch. Use -D to force.</dd></div></div>
+        <div class='row'><div class='from-fourth to-right one columns command'> <dt>branch --track <em>new</em> <em>remote/branch</em></dt><dd>Create a new local branch that tracks a remote branch.</dd></div></div>
+        <div class='row'><div class='from-second to-left  three columns command'> <dt>clone <em>repo</em></dt><dd>Download the repository specified by &lt;em&gt;repo&lt;/em&gt; and checkout HEAD of the master branch.</dd></div></div>
+        <div class='row'><div class='from-second to-left  three columns command'> <dt>pull <em>remote</em> <em>refspec</em></dt><dd>Incorporates changes from a remote repository into the current branch. In its default mode, &lt;code&gt;git pull&lt;/code&gt; is shorthand for &lt;code&gt;git fetch&lt;/code&gt; followed by &lt;code&gt;git merge FETCH_HEAD&lt;/code&gt;.</dd></div></div>
+        <div class='row'><div class='from-second to-left  three columns command'> <dt>reset --hard <em>remote</em>/<em>branch</em></dt><dd>Reset local repo and working tree to match a remote branch. Use &lt;code&gt;reset &amp;#8209;&amp;#8209;hard origin/master&lt;/code&gt; to throw away all commits to the local master branch. Use this to start over on a failed merge.</dd></div></div>
+        <div class='row'><div class='from-fourth to-left  one columns command'> <dt>fetch <em>remote</em> <em>refspec</em></dt><dd>Download objects and refs from another repository.</dd></div></div>
+        <div class='row'><div class='from-fourth to-right one columns command'> <dt>push</dt><dd>update the server with your commits across all branches that are *COMMON* between your local copy and the server.Local branches that were never pushed to the server in the first place are not shared</dd></div></div>
+        <div class='row'><div class='from-fourth to-right one columns command'> <dt>push <em>remote</em> <em>branch</em></dt><dd>Push new (or existing) branch to remote repository</dd></div></div>
+        <div class='row'><div class='from-fourth to-right one columns command'> <dt>push <em>remote</em> <em>branch</em>:<em>branch</em></dt><dd>Push new branch to remote repository with a different name</dd></div></div>
+        <div class='row'><div class='fifth       local    one columns command'> <dt>branch -r</dt><dd>List remote branches</dd></div></div>
+        <div class='row'><div class='fifth       local    one columns command'> <dt>push <em>remote</em> :<em>branch</em></dt><dd>Remove a remote branch. Literally &amp;quot;push nothing to this branch&amp;quot;</dd></div></div>
+        <div class='row'><div class='second      to-left  one columns command'> <dt>clean</dt><dd>Cleans the working tree by recursively removing files that are not under version control, starting from the current directory.</dd></div></div>
+        <div class='row'><div class='from-first  to-left  one columns command'> <dt>stash save <span class="optional"><em>msg</em></span></dt><dd>Save your local modifications to a new stash, and run git reset &amp;#8209;&amp;#8209;hard to revert them. The &lt;em&gt;msg&lt;/em&gt; part is optional and gives the description along with the stashed state. For quickly making a snapshot, you can omit both "save" and &lt;em&gt;msg&lt;/em&gt;.</dd></div></div>
+        <div class='row'><div class='from-first  to-right one columns command'> <dt>stash apply <span class="optional"><em>stash</em></span></dt><dd>Move changes from the specified stash into the workspace. The latest stash is the default.</dd></div></div>
+        <div class='row'><div class='from-first  to-right one columns command'> <dt>stash pop</dt><dd>Applies the changes from the last (or specified) stash and then removes the given stash.</dd></div></div>
+        <div class='row'><div class='first       local    one columns command'> <dt>stash list</dt><dd>List the stashes that you currently have.</dd></div></div>
+        <div class='row'><div class='first       local    one columns command'> <dt>stash show <span class="optional"><em>stash</em></span></dt><dd>Show the changes recorded in the stash as a diff between the stashed state and its original parent. When no &lt;em&gt;stash&lt;/em&gt; is given, shows the latest one.</dd></div></div>
+        <div class='row'><div class='first       local    one columns command'> <dt>stash drop <span class="optional"><em>stash</em></span></dt><dd>Remove a single stashed state from the stash list. When no &lt;em&gt;stash&lt;/em&gt; is given, it removes the latest one.</dd></div></div>
+        <div class='row'><div class='first       local    one columns command'> <dt>stash clear</dt><dd>Remove all the stashed states. Note that those states will then be subject to pruning, and may be impossible to recover.</dd></div></div>
+        <div class='row'><div class='from-first  to-right three columns command'> <dt>stash branch <em>branchname</em> <span class="optional"><em>stash</em></span></dt><dd>Creates and checks out a new branch named &lt;em&gt;branchname&lt;/em&gt; starting from the commit at which the &lt;em&gt;stash&lt;/em&gt; was originally created, applies the changes recorded in &lt;em&gt;stash&lt;/em&gt; to the new working tree and index. &lt;br&gt;If that succeeds, and &lt;em&gt;stash&lt;/em&gt; is a reference of the form stash@{&lt;em&gt;revision&lt;/em&gt;}, it then drops the &lt;em&gt;stash&lt;/em&gt;. When no &lt;em&gt;stash&lt;/em&gt; is given, applies the latest one. &lt;br&gt;This is useful if the branch on which you ran git stash save has changed enough that git stash apply fails due to conflicts. Since the stash is applied on top of the commit that was HEAD at the time git stash was run, it restores the originally stashed state with no conflicts.</dd></div></div>
+      </dl>
     </div>
-
   </body>
 </html>
