@@ -20,6 +20,11 @@
   box-sizing: border-box;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 @font-face {
   font-family: "Terminus";
   src: url("TerminusTTF-4.39.ttf");
@@ -96,6 +101,7 @@ body {
   border: @arrow-height solid;
   border-top-color: transparent;
   border-bottom-color: transparent;
+  transition: border-color 1s;
 }
 
 .to-left:after {
@@ -110,11 +116,8 @@ body {
   right: -43px;
 }
 
-.local {
-  background: fade(black, 80%);
-}
-
 .arrow-color(@color) {
+  transition: background 1s;
   background: @color;
   &.to-left:after {border-right-color: @color}
   &.to-right:after {border-left-color: @color}
@@ -123,7 +126,14 @@ body {
   }
 }
 
-.local {
+.arrow-color-target(@color) {
+    transition: background 1s;
+    .to-left { .arrow-color(fade(darken(@color, 5%), 95%)) }
+    .to-right { .arrow-color(fade(darken(@color, 10%), 95%)) }
+    .to-self { .arrow-color(fade(darken(@color, 15%), 95%)) }
+}
+
+.to-self {
   .arrow-color(fade(darken(black, 10%), 95%))
 }
 
@@ -154,6 +164,31 @@ body {
 .from-second.to-right.three,
 .fifth  {
   .arrow-color(fade(darken(@color-5, 10%), 95%));
+}
+
+.stash:target ~ dl {
+  .row:not(.stash) { display: none; }
+  .row.stash { .arrow-color-target(@color-1) }
+}
+
+.workspace:target ~ dl {
+  .row:not(.workspace) { display: none; }
+  .row.workspace { .arrow-color-target(@color-2) }
+}
+
+.index:target ~ dl {
+  .row:not(.index) { display: none; }
+  .row.index { .arrow-color-target(@color-3) }
+}
+
+.local:target ~ dl {
+  .row:not(.local) { display: none; }
+  .row.local { .arrow-color-target(@color-4) }
+}
+
+.remote:target ~ dl {
+  .row:not(.remote) { display: none; }
+  .row.remote { .arrow-color-target(@color-5) }
 }
 
 .container:after,
