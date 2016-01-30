@@ -10,6 +10,8 @@
 
 @interline: 3px;
 
+@transition: 1s;
+
 @pad-v: 3px;
 @pad-h: 20px;
 @arrow-height: 12px;
@@ -32,53 +34,20 @@ a {
 
 @import url(https://fonts.googleapis.com/css?family=Inconsolata|Raleway:200);
 
-body {
+body, html {
   width: 100%;
+  height: 100%;
   margin: auto;
   color: white;
-}
-
-.title h1 {
-  font-family: 'Raleway';
-  font-weight: 100;
-  font-size: 15pt;
-  text-align: center;
-  text-transform: uppercase;
-  padding: 1em 0;
-  border-bottom: 1px dotted white;
-  margin-bottom: 1em;
-}
-
-.command {
-  font-family: 'Inconsolata';
-  position: relative;
-
-  dd {
-    height: 0;
-    overflow: hidden;
-    z-index: 1;
-  }
-
-  &:hover dd {
-    height: auto;
-    transition: 1;
-    position: absolute;
-    width: 300px;
-    padding: 10px;
-    border-radius: 2pt;
-    margin-top: @interline*1.5;
-  }
-
-  &.fifth:hover dd {
-    right: 2%;
-  }
 }
 
 .container {
   position: relative;
   width: 98%;
+  min-height: 100%;
   margin: 0 auto;
   box-sizing: border-box;
+  padding-bottom: 25em;
 }
 
 .columns {
@@ -87,6 +56,61 @@ body {
   padding: @pad-v @pad-h;
   margin-bottom: @interline;
 }
+
+.title {
+  padding: 0;
+
+  & h1 {
+    font-family: 'Raleway';
+    font-weight: 100;
+    font-size: 15pt;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 1em 0;
+    border-bottom: 1px dotted white;
+    margin-bottom: 1em;
+    background: rgba(0, 0, 0, 0.1);
+  }
+}
+
+.command {
+  font-family: 'Inconsolata';
+  position: relative;
+
+  dd {
+    opacity: 0;
+    overflow: hidden;
+    z-index: 1;
+    transition: @transition;
+    position: absolute;
+    width: 300px;
+    padding: 10px;
+    border-radius: 2pt;
+    margin-top: @interline*1.5;
+    pointer-events: none
+  }
+
+  &:hover dd {
+    transition: @transition;
+    opacity: 1;
+  }
+
+  &.fifth dd {
+    right: 2%;
+  }
+}
+
+em:before,
+em:after,
+.optional:before,
+.optional:after {
+  opacity: 0.5;
+}
+
+em:before { content: '<'; }
+em:after { content: '>'; }
+.optional:before { content: '['; }
+.optional:after { content: ']'; }
 
 .to-left:after,
 .to-right:after {
@@ -101,7 +125,7 @@ body {
   border: @arrow-height solid;
   border-top-color: transparent;
   border-bottom-color: transparent;
-  transition: border-color 1s;
+  transition: border-color @transition;
 }
 
 .to-left:after {
@@ -117,7 +141,7 @@ body {
 }
 
 .arrow-color(@color) {
-  transition: background 1s;
+  transition: background @transition;
   background: @color;
   &.to-left:after {border-right-color: @color}
   &.to-right:after {border-left-color: @color}
@@ -127,38 +151,44 @@ body {
 }
 
 .arrow-color-target(@color) {
-    transition: background 1s;
+    transition: background @transition;
     .to-left { .arrow-color(fade(darken(@color, 5%), 95%)) }
     .to-right { .arrow-color(fade(darken(@color, 10%), 95%)) }
     .to-self { .arrow-color(fade(darken(@color, 15%), 95%)) }
 }
 
-.to-self {
-  .arrow-color(fade(darken(black, 10%), 95%))
+.title-color(@color) {
+  background: darken(saturate(@color, 20%), 20%);
+  transition: background @transition;
 }
 
 .from-first.to-left,
+.from-first.to-self,
 .first  {
   .arrow-color(fade(darken(@color-1, 10%), 95%));
 }
 .from-second.to-left,
+.from-second.to-self,
 .from-first.to-right.one,
 .second {
   .arrow-color(fade(darken(@color-2, 10%), 95%));
 }
 .from-third.to-left,
+.from-third.to-self,
 .from-first.to-right.two,
 .from-second.to-right.one,
 .third  {
   .arrow-color(fade(darken(@color-3, 10%), 95%));
 }
 .from-fourth.to-left,
+.from-fourth.to-self,
 .from-third.to-right.one,
 .from-second.to-right.two,
 .from-first.to-right.three,
 .fourth {
   .arrow-color(fade(darken(@color-4, 10%), 95%));
 }
+.from-fourth.to-self,
 .from-fourth.to-right.one,
 .from-third.to-right.two,
 .from-second.to-right.three,
@@ -166,29 +196,71 @@ body {
   .arrow-color(fade(darken(@color-5, 10%), 95%));
 }
 
-.stash:target ~ dl {
-  .row:not(.stash) { display: none; }
-  .row.stash { .arrow-color-target(@color-1) }
+
+.row {
+  max-height: 1000pt;
+  overflow: hidden;
+  transition: @transition;
 }
 
-.workspace:target ~ dl {
-  .row:not(.workspace) { display: none; }
-  .row.workspace { .arrow-color-target(@color-2) }
+.stash:target {
+  & ~ .row .stash h1 {
+    .title-color(@color-1) }
+  & ~ dl {
+    .row:not(.stash) {
+      max-height: 0;
+      transition: @transition; }
+    .row.stash {
+      .arrow-color-target(@color-1);
+      transition: @transition; } }
 }
 
-.index:target ~ dl {
-  .row:not(.index) { display: none; }
-  .row.index { .arrow-color-target(@color-3) }
+.workspace:target {
+  & ~ .row .workspace h1 {
+    .title-color(@color-2) }
+  & ~ dl {
+    .row:not(.workspace) { // display: none;
+      max-height: 0;
+      transition: @transition; }
+    .row.workspace {
+      .arrow-color-target(@color-2);
+      transition: @transition; } }
 }
 
-.local:target ~ dl {
-  .row:not(.local) { display: none; }
-  .row.local { .arrow-color-target(@color-4) }
+.index:target {
+  & ~ .row .index h1 {
+    .title-color(@color-3) }
+  & ~ dl {
+    .row:not(.index) { // display: none;
+      max-height: 0;
+      transition: @transition; }
+    .row.index {
+      .arrow-color-target(@color-3);
+      transition: @transition; } }
 }
 
-.remote:target ~ dl {
-  .row:not(.remote) { display: none; }
-  .row.remote { .arrow-color-target(@color-5) }
+.local:target {
+  & ~ .row .local h1 {
+    .title-color(@color-4) }
+  & ~ dl {
+    .row:not(.local) { // display: none;
+      max-height: 0;
+      transition: @transition; }
+    .row.local {
+      .arrow-color-target(@color-4);
+      transition: @transition; } }
+}
+
+.remote:target {
+  & ~ .row .remote h1 {
+    .title-color(@color-5) }
+  & ~ dl {
+    .row:not(.remote) { // display: none;
+      max-height: 0;
+      transition: @transition; }
+    .row.remote {
+      .arrow-color-target(@color-5);
+      transition: @transition; } }
 }
 
 .container:after,
@@ -236,4 +308,34 @@ body {
 .one.second.to-left.columns {
   width: @width*2 + @margin - 2;
   margin-left: @width*2 + @margin*2 + 2;
+}
+
+footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 7em 0;
+
+  background: rgba(5, 2, 20, 0.9);
+
+  text-align: center;
+  font-family: Raleway;
+  font-size: 1.3em;
+
+  p {
+    line-height: 2em;
+
+    &:not(:nth-last-of-type(1)):after {
+      display: block;
+      text-align: center;
+      content: '•';
+    }
+  }
+
+  .coded {
+    font-size: 0.6em;
+    position: relative;
+    bottom: 0.2em;
+  }
 }
