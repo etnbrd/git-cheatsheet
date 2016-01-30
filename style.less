@@ -197,70 +197,59 @@ em:after { content: '>'; }
 }
 
 
-.row {
-  max-height: 1000pt;
+.hidden() {
   overflow: hidden;
+  max-height: 0;
   transition: @transition;
+}
+
+.visible() {
+  max-height: 1000pt;
+  transition: @transition;
+}
+
+.row {
+  .visible();
 }
 
 .stash:target {
   & ~ .row .stash h1 {
     .title-color(@color-1) }
   & ~ dl {
-    .row:not(.stash) {
-      max-height: 0;
-      transition: @transition; }
-    .row.stash {
-      .arrow-color-target(@color-1);
-      transition: @transition; } }
+    .row:not(.stash) { .hidden() }
+    .row.stash { .arrow-color-target(@color-1); } }
 }
 
 .workspace:target {
   & ~ .row .workspace h1 {
     .title-color(@color-2) }
   & ~ dl {
-    .row:not(.workspace) { // display: none;
-      max-height: 0;
-      transition: @transition; }
-    .row.workspace {
-      .arrow-color-target(@color-2);
-      transition: @transition; } }
+    .row:not(.workspace) { .hidden() }
+    .row.workspace { .arrow-color-target(@color-2); } }
 }
 
 .index:target {
   & ~ .row .index h1 {
     .title-color(@color-3) }
   & ~ dl {
-    .row:not(.index) { // display: none;
-      max-height: 0;
-      transition: @transition; }
-    .row.index {
-      .arrow-color-target(@color-3);
-      transition: @transition; } }
+    .row:not(.index) { .hidden() }
+    .row.index { .arrow-color-target(@color-3); } }
 }
 
 .local:target {
   & ~ .row .local h1 {
     .title-color(@color-4) }
   & ~ dl {
-    .row:not(.local) { // display: none;
-      max-height: 0;
-      transition: @transition; }
-    .row.local {
-      .arrow-color-target(@color-4);
-      transition: @transition; } }
+    .row:not(.local) { .hidden() }
+    .row.local { .arrow-color-target(@color-4); } }
 }
 
 .remote:target {
   & ~ .row .remote h1 {
     .title-color(@color-5) }
   & ~ dl {
-    .row:not(.remote) { // display: none;
-      max-height: 0;
-      transition: @transition; }
-    .row.remote {
-      .arrow-color-target(@color-5);
-      transition: @transition; } }
+    .row:not(.remote) { .hidden() }
+    .row.remote { .arrow-color-target(@color-5); } }
 }
 
 .container:after,
