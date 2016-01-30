@@ -217,7 +217,7 @@ em:after { content: '>'; }
     .title-color(@color-1) }
   & ~ dl {
     .row:not(.stash) { .hidden() }
-    .row.stash { .arrow-color-target(@color-1); } }
+    .row.stash { .arrow-color-target(@color-1); transition: @transition;} }
 }
 
 .workspace:target {
@@ -225,7 +225,7 @@ em:after { content: '>'; }
     .title-color(@color-2) }
   & ~ dl {
     .row:not(.workspace) { .hidden() }
-    .row.workspace { .arrow-color-target(@color-2); } }
+    .row.workspace { .arrow-color-target(@color-2); transition: @transition; } }
 }
 
 .index:target {
@@ -233,7 +233,7 @@ em:after { content: '>'; }
     .title-color(@color-3) }
   & ~ dl {
     .row:not(.index) { .hidden() }
-    .row.index { .arrow-color-target(@color-3); } }
+    .row.index { .arrow-color-target(@color-3); transition: @transition; } }
 }
 
 .local:target {
@@ -241,7 +241,7 @@ em:after { content: '>'; }
     .title-color(@color-4) }
   & ~ dl {
     .row:not(.local) { .hidden() }
-    .row.local { .arrow-color-target(@color-4); } }
+    .row.local { .arrow-color-target(@color-4); transition: @transition; } }
 }
 
 .remote:target {
@@ -249,7 +249,7 @@ em:after { content: '>'; }
     .title-color(@color-5) }
   & ~ dl {
     .row:not(.remote) { .hidden() }
-    .row.remote { .arrow-color-target(@color-5); } }
+    .row.remote { .arrow-color-target(@color-5); transition: @transition; } }
 }
 
 .container:after,
